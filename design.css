@@ -1,0 +1,263 @@
+/* Center-align the text and buttons */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Set the minimum height to 100% of the viewport */
+    font-family: Arial, sans-serif; /* Specify a fallback font family */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    box-sizing: border-box; /* Include border and padding in element dimensions */
+}
+
+/* Make titles Times New Roman and adjust text size */
+h1, h2, h3 {
+    font-family: "Times New Roman", Times, serif; /* Set the font to Times New Roman */
+    white-space: nowrap; /* Prevent line breaks in titles */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Show an ellipsis (...) for long titles */
+    text-align: center; /* Center-align the titles */
+}
+
+h1 {
+    font-size: 23px; /* Make the title text slightly smaller */
+    color: #333; /* Set the text color to a dark gray */
+    margin: 0.2in 0; /* Set margin to 0.2 inches to separate titles */
+}
+
+/* Center-align the College of Engineering text in the login form */
+h2 {
+    font-family: serif; /* Change the font to serif */
+    font-size: 23px; /* Increase the size of the "Student Log In" text */
+    text-align: center; /* Center-align the "Student Log In" text */
+    margin: 0.2in 0;
+    font-weight: bold !important; /* Make the font bold */
+}
+
+p {
+    font-size: 20px; /* Decrease the text size for "Please select your role" */
+    color: #555; /* Set the text color to a slightly lighter gray */
+    margin-top: 20px; /* Add some space between the titles and the text */
+    font-weight: bold !important; /* Make the font bold */
+}
+
+/* Adjust text input boxes and labels */
+label {
+    display: block; /* Make labels block-level elements */
+    font-size: 16px; /* Adjust the label font size */
+    margin-bottom: 8px; /* Add some space below labels */
+}
+
+/* Adjust the width of text input boxes */
+input[type="text"], input[type="password"] {
+    width: 70%; /* Make text input boxes 80% of the width */
+    padding: 10px; /* Add padding to text input boxes */
+    margin-bottom: 10px; /* Add some space below text input boxes */
+}
+
+/* Add CSS to style the container and buttons */
+#roleSelectionContainer {
+    text-align: center; /* Center-align the content */
+}
+
+#buttonContainer {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center-align buttons horizontally */
+    margin-top: 10px; /* Add some margin between buttons */
+}
+
+#studentButton, #adminButton {
+    font-size: 20px; /* Adjust button text size */
+    padding: 10px 30px; /* Adjust button padding */
+    background-color: #007bff; /* Set button background color to blue */
+    color: #fff; /* Set button text color to white */
+    border: none; /* Remove button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    margin-bottom: 10px; /* Add margin to separate buttons */
+    border-radius: 10px; /* Add rounded corners to the buttons */
+    width: 200px; /* Set button width to make both buttons the same size */
+}
+
+#studentButton:hover, #adminButton:hover {
+    background-color: #0056b3; /* Change button background color on hover */
+}
+
+button {
+    font-size: 20px; /* Increase button text size */
+    padding: 10px 30px; /* Increase button padding */
+    background-color: #007bff; /* Set button background color to blue */
+    color: #fff; /* Set button text color to white */
+    border: none; /* Remove button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    margin-top: 10px; /* Add margin to separate buttons */
+    border-radius: 10px; /* Add rounded corners to the buttons */
+    width: 200px; /* Set button width to make both buttons the same size */
+}
+
+button:hover {
+    background-color: #0056b3; /* Change button background color on hover */
+}
+
+/* Add a yellow border to the entire viewport */
+html {
+    border: 0.2in solid yellow;
+    box-sizing: border-box; /* Include border in element dimensions */
+}
+
+/* Center-align the container */
+#searchFormContainer {
+    font-size: 20px;
+    text-align: top;
+    width: 100%;
+    margin: 0; /* Remove any margin */
+    margin-bottom: 40%;
+    margin-top: 20px;
+}
+
+/* Center-align the form content container */
+.form-group1 {
+    display: flex;
+    margin-bottom: 5px;
+    text-align: top;
+    margin-top: 40px; /* Add margin at the top to move the form groups higher */
+}
+
+
+/* Adjust the top margin of the form groups to move them higher */
+.form-group2, .form-group3 {
+    display: inline-block; /* Set to inline-block to make them appear beside each other */
+    margin-bottom: 10px;
+    margin-top: 2px; /* Add margin at the top to move the form groups higher */
+}
+
+/* Style the radio buttons to display horizontally with 0.5-inch separation */
+.form-group3 input {
+    text-align: top;
+    width: 1%; /* Reduce the width to make it shorter */
+    margin-right: 10px; /* Adjust the margin to separate them */
+    margin-bottom: 2px;
+    margin-top: 2px; /* Add margin at the top to move the form groups higher */
+}
+
+/* Adjust the width and position of the searchTitle input */
+#searchFormContainer input[type="text"] {
+    width: 20%; /* Reduce the width to make it shorter */
+    padding: 5px 10px; /* Add padding to the text input */
+    margin-bottom: 10px; /* Add some space below the text input */
+    margin-top: 0; /* Adjust margin-top to move it higher */
+}
+
+/* Adjust the width, height, and padding of the search button */
+#searchButton {
+    width: 100px; /* Set the width to your desired value */
+    height: 30px; /* Set the height to your desired value */
+    padding: 5px 10px; /* Adjust padding for the button */
+    line-height: 10px; /* Adjust the line height for the text */
+}
+
+
+
+/* Adjust the width of the admin username and password inputs */
+#adminUsername, #adminPassword {
+    width: 300px; /* Adjust the width as needed */
+    padding: 10px; /* Add padding to the text input */
+    margin-bottom: 10px; /* Add some space below the text input */
+}
+
+/* Adjust the size of the admin login button */
+#adminLoginButton {
+    font-size: 20px; /* Adjust button text size */
+    padding: 10px 30px; /* Adjust button padding */
+    background-color: #007bff; /* Set button background color to blue */
+    color: #fff; /* Set button text color to white */
+    border: none; /* Remove button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    margin-top: 10px; /* Add margin to separate buttons */
+    margin-left: 90px; 
+    border-radius: 10px; /* Add rounded corners to the button */
+    width: 120px; /* Set button width */
+}
+
+#adminLoginButton:hover {
+    background-color: #0056b3; /* Change button background color on hover */
+}
+
+
+#fileUploaderContainer {
+    display: none;
+        position: absolute; /* or relative, depending on your layout */
+        top: 20%; /* Adjust as needed */
+        left: 50%; /* Adjust as needed */
+        transform: translate(-50%, -50%); /* Center the container */
+    
+}
+/* Style for the back button in the file uploader container */
+#backButton {
+    margin-top: 10px;
+    padding: 10px 15px;
+    width: 120px; /* Adjust the width as needed */
+    height: 30px;
+    font-size: 12px;
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#fileUploadButton {
+    width: 180px; /* Adjust the width as needed */
+    padding: 10px 15px;
+    height: 30px;
+    background-color: #f1c40f; /* Yellow background color */
+    color: #ffffff; /* White text color */
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+#fileUploadResearchButton{
+    width: 180px; /* Adjust the width as needed */
+    padding: 10px 15px;
+    height: 30px;
+    background-color: #f1c40f; /* Yellow background color */
+    color: #ffffff; /* White text color */
+    font-size: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+#thesisFileListContainer {
+    position: absolute;
+    top: 25; /* Adjust top position as needed */
+    left: 0; /* Adjust left position as needed */
+  }
+  
+  #researchFileListContainer {
+    position: absolute;
+    top: 25; /* Adjust top position as needed */
+    left: 500px; /* Adjust left position as needed */
+  }
+  
+  /* Common styling for both containers */
+  .fileListContainer {
+    margin-right: 16px; /* Adjust margin as needed */
+  }
+  
+  .fileListWithScroll {
+    max-height: 200px; /* Adjust the maximum height as needed */
+    overflow-y: auto;
+    border: 1px solid #ccc; /* Optional: Add a border for aesthetics */
+    padding: 8px; /* Optional: Add padding for better appearance */
+  }
+  
+
+#uploadedFiles,
+#uploadedResearchFiles {
+    max-height: 200px; /* Adjust the height as needed */
+    overflow-y: auto; /* Add a scrollbar when the content exceeds the height */
+}

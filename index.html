@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Link to the external CSS file -->
+<link rel="stylesheet" type="text/css" href="design.css">
+<style>
+    /* Set HTML and body to cover the entire viewport */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Hide overflow to prevent scroll bars */
+    }
+
+/* Add this style for the delete button */
+.deleteButton {
+        font-size: 8px; /* Adjust button text size */
+        padding: 2px 5px; /* Adjust button padding */
+        background-color: #dc3545; /* Set button background color to red */
+        color: #fff; /* Set button text color to white */
+        border: none; /* Remove button border */
+        cursor: pointer; /* Add a pointer cursor on hover */
+        border-radius: 5px; /* Add rounded corners to the button */
+        margin-left: 5px; /* Adjust margin for spacing */
+        width: 50px; /* Adjust the width of the button */
+    }
+
+    .deleteButton:hover {
+        background-color: #c82333; /* Change button background color on hover */
+    }
+  
+    
+</style>
+</head>
+<body>
+
+<div id="roleSelectionContainer">
+    <h1>PRESIDENT RAMON MAGSAYSAY STATE UNIVERSITY</h1>
+    <h1>COLLEGE OF ENGINEERING</h1>
+    <h1>RESEARCH AND THESIS PROJECT DATABASE</h1>
+    <p>Please select your role:</p>
+    <div id="buttonContainer">
+        <button id="studentButton">Student</button>
+        <button id="adminButton">Administrator</button>
+    </div>
+
+</div>
+
+        <div id="searchFormContainer"style="display: none;">
+            
+            <h3>RESEARCH AND THESIS PROJECT DATABASE</h3>
+       
+            <div class="form-group1">
+                <label for="searchTitle">Title:</label>
+                <input type="text" id="searchTitle" name="searchTitle" required><br>
+            </div>
+            <div class="form-group2">
+                <label for="course">Course:</label>
+                <select id="course" name="course">
+                    <option value="BSCE">BSCE</option>
+                    <option value="BSEE">BSEE</option>
+                    <option value="BSCpE">BSCpE</option>
+                    <option value="BSME">BSME</option>
+                </select>
+            </div>
+            <div class="form-group3">
+                <label for="researchType">Research Type:</label>
+                <select id="researchType" name="researchType">
+                    <option value="Thesis">Thesis</option>
+                    <option value="Research">Research</option>
+                </select>
+            </div>
+            
+            <button id="searchButton">Search</button>
+            
+        </div>
+        
+        </form>
+        <div id="adminLoginFormContainer" style="display: none;">
+            <h4>ADMIN LOG IN</h4>
+            <form id="adminLoginForm">
+                <label for="adminUsername">Username:</label>
+                <input type="text" id="adminUsername" name="adminUsername" required><br>
+    
+                <label for="adminPassword">Password:</label>
+                <input type="password" id="adminPassword" name="adminPassword" required><br>
+    
+                <button id="adminLoginButton" type="button">Log In</button>
+            </form>
+        </div>
+        <div id="courseSelectionContainer" style="display: none;">
+            <div id="buttonContainer" style="text-align: center; margin-top: 50px;">
+                <h1>Select a course to upload file: </h1>
+                <button id="BSCEButton" style="width: 200px; height: 50px; background-color: #3498db; color: #ffffff; font-size: 16px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 10px;">BS CIVIL ENGINEERING</button>
+                <button id="BSCpEButton" style="width: 200px; height: 50px; background-color: #3498db; color: #ffffff; font-size: 16px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 10px;">BS COMPUTER ENGINEERING</button>
+                <button id="BSEEButton" style="width: 200px; height: 50px; background-color: #3498db; color: #ffffff; font-size: 16px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 10px;">BS ELECTRICAL ENGINEERING</button>
+                <button id="BSMEButton" style="width: 200px; height: 50px; background-color: #3498db; color: #ffffff; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">BS MECHANICAL ENGINEERING</button>
+            </div>
+        </div>
+        <div id="fileUploaderContainer" style="display: none;">
+            <h1>Welcome to the File Uploader</h1>
+            <p>Select a file to upload for <span id="fileUploaderCategory"></span>:</p>
+            
+            <input type="file" id="fileInput" accept=".pdf, .txt, .jpg, .jpeg, .png" />
+           <!-- Thesis Button -->
+<button id="fileUploadButton" onclick="uploadFile('thesis')">Upload Thesis Paper</button>
+
+<!-- Research Button -->
+<button id="fileUploadResearchButton" onclick="uploadFile('research')">Upload Research Paper</button>
+
+        
+            <button id="backButton" onclick="goBackToCourseSelection()">Back</button>
+            <div id="fileListsContainer" style="display: flex;">
+   <div id="fileListsContainer">
+<!-- Existing Thesis File List -->
+<div class="fileListContainer" id="thesisFileListContainer">
+<h2>File List for THESIS PAPERS</h2>
+<div class="fileListContent">
+  <ul id="uploadedFiles" class="fileListWithScroll"></ul>
+</div>
+</div>
+
+<!-- Research File List -->
+<div class="fileListContainer" id="researchFileListContainer">
+<h2>File List for RESEARCH PAPERS</h2>
+<div class="fileListContent">
+  <ul id="uploadedResearchFiles" class="fileListWithScroll"></ul>
+</div>
+</div>
+</div>
+  
+              <script>
+                // Function to show the file uploader
+                function showFileUploader() {
+                  document.getElementById('fileUploaderContainer').style.display = 'block';
+                }
+              
+                // Function to handle file upload for both thesis and research papers
+                function uploadFile(category) {
+                  const fileInput = document.getElementById('fileInput');
+                  const fileList = fileInput.files;
+              
+                  if (fileList.length > 0) {
+                    const file = fileList[0];
+                    displayFile(file, category);
+                  } else {
+                    alert('Please select a file.');
+                  }
+                }
+              
+                // Function to display file in the appropriate file list
+                function displayFile(file, category) {
+                  const fileListElement = document.getElementById(category === 'thesis' ? 'uploadedFiles' : 'uploadedResearchFiles');
+                  const listItem = document.createElement('li');
+                  const fileLink = document.createElement('a');
+                  fileLink.textContent = file.name;
+                  fileLink.href = URL.createObjectURL(file);
+                  fileLink.target = '_blank';  // Open in a new tab or window
+              
+                  const deleteButton = document.createElement('button');
+                  deleteButton.textContent = 'Delete';
+                  deleteButton.className = 'deleteButton';  // Add the class for styling
+                  deleteButton.onclick = function () {
+                    listItem.remove();
+                  };
+              
+                  listItem.appendChild(fileLink);
+                  listItem.appendChild(deleteButton);
+                  fileListElement.appendChild(listItem);
+                }
+              </script>
+              
+              
+              
+        <!-- Include your external JavaScript file -->
+        <script src="main.js"></script>
+    </body>
+    </html>
